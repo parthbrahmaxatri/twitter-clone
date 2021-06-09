@@ -9,7 +9,7 @@ import PublishIcon from '@material-ui/icons/Publish';
 
 function Post({
     displayName,
-    userName,
+    username,
     verified,
     text,
     image,
@@ -18,24 +18,24 @@ function Post({
     return (
         <div className="post">
             <div className="post__avatar">
-                <Avatar src="https://avatars.githubusercontent.com/u/69392328?v=4"></Avatar>
+                <Avatar src={avatar} />
             </div>
             <div className="post__body">
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            Parth Brahmaxatri{" "}
+                            {displayName}{" "}
                             <span className="post__headerSpecial">
-                                <VerifiedUserIcon className="post__badge" />
-                                @parthh
+                                {verified && <VerifiedUserIcon className="post__badge" />}
+                                @{username}
                             </span>
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>I challenge you to make a twitter clone!!</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src="https://media.giphy.com/media/9rwFfmB2qJ0mEsmkfj/giphy.gif" />
+                <img src={image} alt="" />
                 <div className="post__footer">
                 <ChatBubbleOutlineIcon fontSize="small" />
                 <RepeatIcon fontSize="small" />
@@ -44,7 +44,7 @@ function Post({
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Post;
